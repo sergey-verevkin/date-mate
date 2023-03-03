@@ -9,7 +9,7 @@ ActiveAdmin.setup do |config|
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #
-  # config.site_title_link = "/"
+  config.site_title_link = "/"
 
   # Set an optional image to be displayed for the header
   # instead of a string (overrides :site_title)
@@ -30,7 +30,7 @@ ActiveAdmin.setup do |config|
   # will namespace routes to /hello_world/*
   #
   # To set no namespace by default, use:
-  #   config.default_namespace = false
+  config.default_namespace = false
   #
   # Default:
   # config.default_namespace = :admin
@@ -199,7 +199,7 @@ ActiveAdmin.setup do |config|
   # Create another checkbox is disabled by default. You can customize it for individual
   # resources or you can enable them globally from here.
   #
-  # config.create_another = true
+  config.create_another = true
 
   # == Register Stylesheets & Javascripts
   #
