@@ -6,20 +6,26 @@ ActiveAdmin.register_page "Dashboard" do
     dates = UpcomingDates.new.call
 
     panel "Today" do
-      dates[:today].each do |date|
-        li { date.display_name }
+      table_for dates[:today] do
+        column(:type) { |date| status_tag date.variety }
+        column :happen_on
+        column :datable
       end
     end
 
     panel "Tomorrow" do
-      dates[:tomorrow].each do |date|
-        li { date.display_name }
+      table_for dates[:tomorrow] do
+        column(:type) { |date| status_tag date.variety }
+        column :happen_on
+        column :datable
       end
     end
 
-    panel "This month" do
-      dates[:this_month].each do |date|
-        li { date.display_name }
+    panel "Upcoming month" do
+      table_for dates[:this_month] do
+        column(:type) { |date| status_tag date.variety }
+        column :happen_on
+        column :datable
       end
     end
 

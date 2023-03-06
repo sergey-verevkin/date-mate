@@ -22,3 +22,10 @@
     }
   }
 }
+
+.status_tag {
+  &.birthday { background: #8daa92; }
+  &.anniversary { background: #63B8FF; }
+  &.holiday { background: #e29b20; }
+  &.error, &.errored, &.red { background: #d45f53; }
+}

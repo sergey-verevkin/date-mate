@@ -5,9 +5,7 @@ class SignificantDate < ApplicationRecord
 
   validates :month, :day, presence: true
 
-  scope :natural_order, -> { order(:month, :day) }
-
-  def display_name
-    "(#{variety}) #{month}/#{day} - #{datable.display_name}"
+  def happen_on
+    "#{month}/#{day}"
   end
 end
