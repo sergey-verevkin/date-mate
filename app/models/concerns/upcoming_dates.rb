@@ -4,16 +4,6 @@ class UpcomingDates
     @form_date = form_date
   end
 
-  def call
-    {
-      today: today_dates,
-      tomorrow: tomorrow_dates,
-      this_month: this_month_dates
-    }
-  end
-
-  private
-
   def today_dates
     base_significant_dates.where(day: form_date.day, month: form_date.month)
   end
@@ -30,6 +20,14 @@ class UpcomingDates
     to_date_index = month_end_date.month * 100 + month_end_date.day
 
     base_significant_dates.where("(month * 100 + day) BETWEEN ? AND ?", from_date_index, to_date_index)
+  end
+
+  def past_month_dates
+    month_end_date = form_date - 1.month
+    from_date_index = form_date.month * 100 + form_date.day
+    to_date_index = month_end_date.month * 100 + month_end_date.day
+
+    base_significant_dates.where("(month * 100 + day) BETWEEN ? AND ?", to_date_index, from_date_index)
   end
 
   def base_significant_dates

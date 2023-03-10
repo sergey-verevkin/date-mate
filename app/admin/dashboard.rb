@@ -3,10 +3,19 @@ ActiveAdmin.register_page "Dashboard" do
   menu priority: 1, label: proc { I18n.t("active_admin.dashboard") }
 
   content title: proc { I18n.t("active_admin.dashboard") } do
-    dates = UpcomingDates.new.call
+    dates = UpcomingDates.new
+
+    # TODO: add color warning
+    panel "Past month dates" do
+      table_for dates.past_month_dates do
+        column(:type) { |date| status_tag date.variety }
+        column :happen_on
+        column :datable
+      end
+    end
 
     panel "Today" do
-      table_for dates[:today] do
+      table_for dates.today_dates do
         column(:type) { |date| status_tag date.variety }
         column :happen_on
         column :datable
@@ -14,7 +23,7 @@ ActiveAdmin.register_page "Dashboard" do
     end
 
     panel "Tomorrow" do
-      table_for dates[:tomorrow] do
+      table_for dates.tomorrow_dates do
         column(:type) { |date| status_tag date.variety }
         column :happen_on
         column :datable
@@ -22,7 +31,7 @@ ActiveAdmin.register_page "Dashboard" do
     end
 
     panel "Upcoming month" do
-      table_for dates[:this_month] do
+      table_for dates.this_month_dates do
         column(:type) { |date| status_tag date.variety }
         column :happen_on
         column :datable
