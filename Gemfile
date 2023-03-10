@@ -73,3 +73,6 @@ end
 
 gem 'activeadmin'
 gem 'devise'
+
+gem 'vite_rails'
+gem 'vite_ruby'

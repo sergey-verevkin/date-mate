@@ -1,0 +1,1 @@
+import{d as a,a as n,o,c as _,t as r,f as c,g as l,m as e}from"./app-9f7b8120.js";const s=a({__name:"[...all]",setup(f){const{t}=n();return(i,p)=>(o(),_("div",null,r(c(t)("not-found")),1))}});typeof e=="function"&&e(s);const m=l(s,[["__file","/Users/sergeyverevkin/RailsProjects/date_mate/src/pages/[...all].vue"]]);export{m as default};
